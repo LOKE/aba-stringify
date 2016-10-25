@@ -1,3 +1,5 @@
+'use strict';
+
 const TRANSACTION_CODES = ['13', '50', '51', '52', '53', '54', '55', '56', '57'];
 const INDICATOR = ['N', 'W', 'X', 'Y', ' '];
 const bsbRegex = /\d{3}\-\d{3}/;

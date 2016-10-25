@@ -1,7 +1,10 @@
-extends: airbnb
+extends: airbnb-base
 plugins:
   - import
   - ava
+parserOptions: 
+  sourceType: script
+
 rules:
   comma-dangle:
     - error
