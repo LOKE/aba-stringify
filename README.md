@@ -1,4 +1,4 @@
-# aba-stringify
+# aba-stringify [![Build Status](https://travis-ci.org/LOKE/aba-stringify.svg?branch=master)](https://travis-ci.org/LOKE/aba-stringify)
 
 format an [ABA](https://www.cemtexaba.com/aba-format) file.
 
