@@ -1,4 +1,12 @@
 language: node_js
 node_js:
-  - '6'
-  - '4'
+- '6'
+- '4'
+deploy:
+  provider: npm
+  email: npm@loke.com.au
+  api_key:
+    secure: flMbgQ9qcSsFae2roJ5tz4m6TRRquqCEenIY+OQrkzzbY+eT0dsG7kx/6d48rTvwnAtcDRY/7mg/2Bz4IDnosVeOUzlgdjiyANIQK10oCiLuA6yt7Wa3czleDIRhY4gZgd7XmtyLgNAGWh9HRe52w+HgpUhcnUb1Wsi+bRQBfsDf8GHiXMDAv1qaL2fPp+xO6ND92G4j/w6pdC08MwL31JW9fBf+dEYraqxZFBkDu6NWSsi5GvoYuVayjoSxJReWT3KhCn+BIVi2CnZ0MBxeCvEv69zbzxFEXHScGRr6xDLr11LCblGwVnVSGfOKI3ujZ0jw6XFympoKYKnXcBWtiByg/hLfE8K7r+4tXk+YNUA2t+F3eZ47F8+JsF41gOWKsA0DrSbbxJWRomxFvQ+DZNvf+50UF5m79ywL64M2OBPJmTo2Nr0cVg74RmSmSxa6JymPWguhHcOCmUqGtFC+vg9XpJhTjeuGU9UmnrAKkXrclQYsqPEct0luVF28PSf3TAZCfXoDwtzWYFb9WRN/P5gSvYGSs4AQWLnHiim8juBAsRY9uBVRSFt7xCnCPEPjx6EjPA9LaeddstoNBDF7dLWY5Xwxt5dDhROgnZKp4Pj3MV6l+MkRxK8b34rk9BaN9bBsHDqUTlkbqks3Em1SLmmBff97VgNABA1hQlbH1m8=
+  on:
+    tags: true
+    repo: LOKE/aba-stringify
