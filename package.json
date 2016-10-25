@@ -1,0 +1,21 @@
+{
+  "name": "aba-stringify",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "test": "ava && eslint ."
+  },
+  "author": "Dominic Smith <dominic.smith@loke.com.au>",
+  "license": "MIT",
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "eslint": "^3.8.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-ava": "^3.1.1",
+    "eslint-plugin-import": "^2.0.1"
+  }
+}
