@@ -21,6 +21,7 @@ function pad(char, right, input, n) {
 const leftPad = pad.bind(null, ' ', false);
 const rightPad = pad.bind(null, ' ', true);
 const zeroPad = pad.bind(null, '0', false);
+const space = pad.bind(null, ' ', false, '');
 
 function formatDate(date) {
   return [
@@ -30,23 +31,25 @@ function formatDate(date) {
   ].join('');
 }
 
-function formatHeader(header) {
+function formatDescriptiveRecord(header) {
   if (header.fiAbbreviation.length !== 3) throw new Error('Invalid header abbreviation');
 
   return [
-    '0                 ',
+    '0',
+    space(17),
     zeroPad(header.reelSequenceNumber, 2),
     header.fiAbbreviation,
-    '       ',
+    space(7),
     rightPad(header.preferredSpecification, 26),
     zeroPad(header.userIdentification, 6),
     rightPad(header.description, 12),
     formatDate(header.date),
-    '                                        \n'
+    space(40),
+    '\n'
   ].join('');
 }
 
-function formatRow(row) {
+function formatDetailRecord(row) {
   const indicator = row.indicator || ' ';
 
   if (TRANSACTION_CODES.indexOf(row.transactionCode) === -1) throw new Error(`Invalid transactionCode "${row.transactionCode}"`);
@@ -71,24 +74,27 @@ function formatRow(row) {
   ].join('');
 }
 
-function formatFooter(rows) {
+function formatFileTotalRecord(rows) {
   const creditTotal = rows.reduce((t, r) => t + (r.transactionCode >= 50 ? r.amount : 0), 0);
   const debitTotal = rows.reduce((t, r) => t + (r.transactionCode < 50 ? r.amount : 0), 0);
   const netTotal = Math.abs(creditTotal - debitTotal);
 
   return [
-    '7999-999            ',
+    '7',
+    '999-999',
+    space(12),
     zeroPad(netTotal, 10),
     zeroPad(creditTotal, 10),
     zeroPad(debitTotal, 10),
-    '                        ',
+    space(24),
     zeroPad(rows.length, 6),
-    '                                        \n'
+    space(40),
+    '\n'
   ].join('');
 }
 
 function abaStringify(header, rows) {
-  return rows.reduce((out, r) => out + formatRow(r), formatHeader(header)) + formatFooter(rows);
+  return formatDescriptiveRecord(header) + rows.map(formatDetailRecord).join('') + formatFileTotalRecord(rows);
 }
 
 module.exports = abaStringify;
