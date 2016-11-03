@@ -1,6 +1,6 @@
 {
   "name": "aba-stringify",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "format an ABA file.",
   "main": "index.js",
   "engines": {
@@ -18,8 +18,7 @@
     "eslint-plugin-ava": "^3.1.1",
     "eslint-plugin-import": "^2.0.1"
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/loke/aba-stringify.git"
